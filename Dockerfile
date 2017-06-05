@@ -13,8 +13,6 @@ RUN date > /root/date
 #Can't run the line above because https://bugs.launchpad.net/openstack-ci/+bug/1274135, need to specify version 1.6.1
 #RUN pip install tox==1.6.1
 
-#RabbitMQ Setup
-RUN /usr/sbin/rabbitmq-server -detached
 
 #Clone Ceilometer
 RUN git clone git://git.openstack.org/openstack/ceilometer /opt/stack/ && pushd /opt/stack/ && git checkout 244439979fd28ecb0c76d132f0be784c988b54c8 && popd
