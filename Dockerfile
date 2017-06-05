@@ -25,7 +25,7 @@ RUN mkdir -p /etc/ceilometer
 #RUN tox -egenconfig
 RUN cp /opt/stack/etc/ceilometer/*.json /etc/ceilometer
 RUN cp /opt/stack/etc/ceilometer/*.yaml /etc/ceilometer
-RUN cp /etc/ceilometer/ceilometer.conf.sample /etc/ceilometer/ceilometer.conf
+RUN cp ceilometer.conf /etc/ceilometer/ceilometer.conf
 
 #Ceilometer Collector Configuration changes
 RUN sed -ri 's/#metering_secret=change this or be hacked/metering_secret=redhat/' /etc/ceilometer/ceilometer.conf
