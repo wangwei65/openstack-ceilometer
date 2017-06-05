@@ -15,7 +15,7 @@ RUN date > /root/date
 
 WORKDIR /opt
 #Clone Ceilometer
-RUN git clone https://github.com/openstack/ceilometer.git
+RUN git clone http://github.com/openstack/ceilometer.git
 
 #Ceilometer Collector Configuration
 WORKDIR /opt/stack
