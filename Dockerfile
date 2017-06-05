@@ -16,7 +16,7 @@ RUN yum install python-pbr git python-devel python-setuptools python-pip gcc lib
 
 WORKDIR /opt
 #Clone Ceilometer
-RUN git -b 6.0.0 clone http://github.com/openstack/ceilometer.git /opt/stack/
+RUN git clone http://github.com/openstack/ceilometer.git  /opt/stack/
 
 #Ceilometer Collector Configuration
 WORKDIR /opt/stack
