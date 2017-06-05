@@ -17,7 +17,7 @@ RUN date > /root/date
 RUN /usr/sbin/rabbitmq-server -detached
 
 #Clone Ceilometer
-RUN git clone git://git.openstack.org/openstack/ceilometer /opt/stack && pushd /opt/stack && git checkout 
+RUN git clone git://git.openstack.org/openstack/ceilometer /opt/stack/ && pushd /opt/stack/ && git checkout 
 244439979fd28ecb0c76d132f0be784c988b54c8 && popd
 
 #Ceilometer Collector Configuration
