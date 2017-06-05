@@ -15,7 +15,7 @@ RUN date > /root/date
 
 
 #Clone Ceilometer
-RUN git clone git://git.openstack.org/openstack/ceilometer /opt/stack/ && pushd /opt/stack/ && git checkout 244439979fd28ecb0c76d132f0be784c988b54c8 && popd
+RUN https://github.com/openstack/ceilometer.git
 
 #Ceilometer Collector Configuration
 WORKDIR /opt/stack
