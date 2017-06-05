@@ -16,7 +16,7 @@ RUN yum install python-pbr git python-devel python-setuptools python-pip gcc lib
 
 WORKDIR /opt
 #Clone Ceilometer
-RUN git clone http://github.com/openstack/ceilometer.git  /opt/stack/
+RUN git clone -b 6.0.0 http://github.com/openstack/ceilometer.git  /opt/stack/
 
 #Ceilometer Collector Configuration
 WORKDIR /opt/stack
@@ -32,7 +32,7 @@ RUN cp /opt/stack/etc/ceilometer/*.yaml /etc/ceilometer
 #RUN sed -ri 's/#connection=<None>/connection = mongodb:\/\/admin:insecure@localhost:27017\/ceilometer/' /etc/ceilometer/ceilometer.conf
 RUN echo "   " > /etc/ceilometer/ceilometer.conf
 #Ceilometer API Configuration changes
-RUN cp /opt/ceilometer/etc/ceilometer/api_paste.ini /etc/ceilometer/api_paste.ini
+RUN cp /opt/stack/etc/ceilometer/api_paste.ini /etc/ceilometer/api_paste.ini
 
 ##Ceilometer Post Launch Configuration
 RUN echo "#!/bin/bash" > /root/postlaunch.sh
