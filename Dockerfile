@@ -13,9 +13,9 @@ RUN date > /root/date
 #Can't run the line above because https://bugs.launchpad.net/openstack-ci/+bug/1274135, need to specify version 1.6.1
 #RUN pip install tox==1.6.1
 
-
+WORKDIR /opt
 #Clone Ceilometer
-RUN https://github.com/openstack/ceilometer.git
+RUN git clone https://github.com/openstack/ceilometer.git
 
 #Ceilometer Collector Configuration
 WORKDIR /opt/stack
