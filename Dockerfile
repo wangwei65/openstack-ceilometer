@@ -11,7 +11,7 @@ RUN date > /root/date
 LABEL version="$CEILOMETER_VERSION"
 
 #RUN pip install tox
-RUN apt-get -y update && apt-get install -y  python-pip  python-setuptools git gcc && apt-get -y clean
+RUN apt-get -y update && apt-get install -y  python-pip python-dev libmysqlclient-dev mysql-python python-setuptools git gcc && apt-get -y clean
 #RUN pip install tox
 
 WORKDIR /opt
