@@ -83,3 +83,5 @@ RUN echo "#!/bin/bash" > /root/postlaunch.sh
 RUN echo "/usr/bin/ceilometer-collector > collector.log 2>&1 &" >> /root/postlaunch.sh
 RUN echo "/usr/bin/ceilometer-api" >> /root/postlaunch.sh
 RUN chmod 755 /root/postlaunch.sh
+
+CMD ["/root/postlaunch.sh"]
