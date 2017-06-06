@@ -18,7 +18,7 @@ WORKDIR /opt
 #Clone Ceilometer
 RUN git clone -b ${CEILOMETER_VERSION} http://github.com/openstack/ceilometer.git  /opt/stack/
 
-RUN pip install mysql-python -y
+RUN pip install mysql-python
 
 #Ceilometer Collector Configuration
 WORKDIR /opt/stack
