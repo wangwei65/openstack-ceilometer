@@ -1,4 +1,4 @@
-FROM centos
+FROM python:2.7.12
 MAINTAINER wangwei
 
 # This Dockerfile installs the following components of Ceilometer in a Docker Image
@@ -11,8 +11,7 @@ RUN date > /root/date
 LABEL version="$CEILOMETER_VERSION"
 
 #RUN pip install tox
-RUN yum install MySQL-python  openssl-devel wget python-pip git redhat-rpm-config python-devel libffi-devel libxml2-devel libxslt-devel python-setuptools libffi libffi-devel gcc python-pbr rabbitmq-server -y
-
+RUN yum install MySQL-python  openssl-devel wget python-pip git redhat-rpm-config python-devel libffi-devel libxml2-devel libxslt-devel python-setuptools libffi libffi-devel gcc -y
 #RUN pip install tox
 
 WORKDIR /opt
