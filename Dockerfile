@@ -14,7 +14,7 @@ RUN date > /root/date
 
 RUN yum install python-pbr git python-devel python-setuptools python-pip gcc libxml2-python libxslt-python python-lxml sqlite python-repoze-lru openssl -y
 
-RUN pip install tox
+#RUN pip install tox
 
 WORKDIR /opt
 #Clone Ceilometer
@@ -24,7 +24,7 @@ RUN git clone -b 6.0.0 http://github.com/openstack/ceilometer.git  /opt/stack/
 WORKDIR /opt/stack
 RUN python setup.py install
 RUN mkdir -p /etc/ceilometer
-RUN tox -egenconfig
+#RUN tox -egenconfig
 RUN cp /opt/stack/etc/ceilometer/*.json /etc/ceilometer
 RUN cp /opt/stack/etc/ceilometer/*.yaml /etc/ceilometer
 RUN cp /opt/stack/etc/ceilometer/ceilometer.conf /etc/ceilometer/ceilometer.conf
