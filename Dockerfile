@@ -12,7 +12,7 @@ RUN date > /root/date
 #RUN pip install tox
 #Can't run the line above because https://bugs.launchpad.net/openstack-ci/+bug/1274135, need to specify version 1.6.1
 
-RUN yum install mysql-devel openssl-devel wget unzip git mongodb mongodb-server python-devel mysql-server libffi-devel libxml2-devel libxslt-devel python-setuptools python-pip libffi libffi-devel gcc  python-pip python-pbr mongodb python-pymongo rabbitmq-server -y
+RUN yum install mysql-devel openssl-devel wget unzip git redhat-rpm-config mongodb mongodb-server python-devel mysql-server libffi-devel libxml2-devel libxslt-devel python-setuptools python-pip libffi libffi-devel gcc  python-pip python-pbr mongodb python-pymongo rabbitmq-server -y
 
 RUN pip install tox
 
