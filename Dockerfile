@@ -21,9 +21,9 @@ RUN git clone -b ${CEILOMETER_VERSION} http://github.com/openstack/ceilometer.gi
 
 #Ceilometer Collector Configuration
 WORKDIR /opt/stack
-RUN pip install -r requirements.txt && PBR_VERSION=${CEILOMETER_VERSION} python setup.py install
-
+RUN pip install -r requirements.txt  
 RUN python setup.py install
+
 RUN mkdir -p /etc/ceilometer
 
 #RUN tox -egenconfig
