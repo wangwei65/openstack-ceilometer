@@ -1,4 +1,4 @@
-FROM fedora
+FROM centos
 MAINTAINER jlabocki@redhat.com
 
 # This Dockerfile installs the following components of Ceilometer in a Docker Image
