@@ -11,8 +11,10 @@ RUN date > /root/date
 
 #RUN pip install tox
 #Can't run the line above because https://bugs.launchpad.net/openstack-ci/+bug/1274135, need to specify version 1.6.1
-RUN pip install tox==1.6.1
+
 RUN yum install python-pbr git python-devel python-setuptools python-pip gcc libxml2-python libxslt-python python-lxml sqlite python-repoze-lru openssl -y
+
+RUN pip install tox
 
 WORKDIR /opt
 #Clone Ceilometer
@@ -22,7 +24,7 @@ RUN git clone -b 6.0.0 http://github.com/openstack/ceilometer.git  /opt/stack/
 WORKDIR /opt/stack
 RUN python setup.py install
 RUN mkdir -p /etc/ceilometer
-#RUN tox -egenconfig
+RUN tox -egenconfig
 RUN cp /opt/stack/etc/ceilometer/*.json /etc/ceilometer
 RUN cp /opt/stack/etc/ceilometer/*.yaml /etc/ceilometer
 #RUN cp ceilometer.conf /etc/ceilometer/ceilometer.conf
