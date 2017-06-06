@@ -27,7 +27,9 @@ RUN mkdir -p /etc/ceilometer
 RUN tox -egenconfig
 RUN cp /opt/stack/etc/ceilometer/*.json /etc/ceilometer
 RUN cp /opt/stack/etc/ceilometer/*.yaml /etc/ceilometer
-#RUN cp ceilometer.conf /etc/ceilometer/ceilometer.conf
+RUN cp /opt/stack/etc/ceilometer/ceilometer.conf /etc/ceilometer/ceilometer.conf
+
+RUN yum install openstack-ceilometer-notification openstack-ceilometer-central python-ceilometerclient -y
 
 #Ceilometer Collector Configuration changes
 #RUN sed -ri 's/#metering_secret=change this or be hacked/metering_secret=redhat/' /etc/ceilometer/ceilometer.conf
