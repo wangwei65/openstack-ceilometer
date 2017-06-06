@@ -1,4 +1,4 @@
-FROM centos
+FROM fedora
 MAINTAINER jlabocki@redhat.com
 
 # This Dockerfile installs the following components of Ceilometer in a Docker Image
@@ -12,9 +12,9 @@ RUN date > /root/date
 #RUN pip install tox
 #Can't run the line above because https://bugs.launchpad.net/openstack-ci/+bug/1274135, need to specify version 1.6.1
 
-RUN yum install python-pbr git python-devel python-setuptools python-pip gcc libxml2-python libxslt-python python-lxml sqlite python-repoze-lru openssl -y
+RUN yum install mysql-devel openssl-devel wget unzip git mongodb mongodb-server python-devel mysql-server libmysqlclient-devel libffi-devel libxml2-devel libxslt-devel python-setuptools python-pip libffi libffi-devel gcc gcc-devel python-pip python-pbr mongodb python-pymongo rabbitmq-server -y
 
-#RUN pip install tox
+RUN pip install tox
 
 WORKDIR /opt
 #Clone Ceilometer
@@ -24,14 +24,10 @@ RUN git clone -b 6.0.0 http://github.com/openstack/ceilometer.git  /opt/stack/
 WORKDIR /opt/stack
 RUN python setup.py install
 RUN mkdir -p /etc/ceilometer
-#RUN tox -egenconfig
+RUN tox -egenconfig
 RUN cp /opt/stack/etc/ceilometer/*.json /etc/ceilometer
 RUN cp /opt/stack/etc/ceilometer/*.yaml /etc/ceilometer
-#RUN cp /opt/stack/etc/ceilometer/ceilometer.conf /etc/ceilometer/ceilometer.conf
-
-RUN yum -y install openstack-ceilometer-notification
-RUN yum -y install openstack-ceilometer-central
-RUN yum -y install python-ceilometerclient
+RUN cp /opt/stack/etc/ceilometer/ceilometer.conf.sample /etc/ceilometer/ceilometer.conf
 
 #Ceilometer Collector Configuration changes
 #RUN sed -ri 's/#metering_secret=change this or be hacked/metering_secret=redhat/' /etc/ceilometer/ceilometer.conf
