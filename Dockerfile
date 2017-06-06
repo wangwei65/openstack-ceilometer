@@ -11,7 +11,7 @@ RUN date > /root/date
 
 #RUN pip install tox
 #Can't run the line above because https://bugs.launchpad.net/openstack-ci/+bug/1274135, need to specify version 1.6.1
-#RUN pip install tox==1.6.1
+RUN pip install tox==1.6.1
 RUN yum install python-pbr git python-devel python-setuptools python-pip gcc libxml2-python libxslt-python python-lxml sqlite python-repoze-lru openssl -y
 
 WORKDIR /opt
