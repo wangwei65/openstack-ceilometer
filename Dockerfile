@@ -80,6 +80,6 @@ RUN echo "#!/bin/bash" > /root/postlaunch.sh
 #Add starting services to the postlaunch script
 #RUN echo "/bin/mongod --dbpath /data/db --fork --logpath /root/mongo.log --noprealloc --smallfiles" >> /root/postlaunch.sh
 #RUN echo "/bin/mongo mydb /root/mongosetup.js" >> /root/postlaunch.sh
-RUN echo "/usr/bin/ceilometer-collector" >> /root/postlaunch.sh
+RUN echo "/usr/bin/ceilometer-collector > collector.log 2>&1 &" >> /root/postlaunch.sh
 RUN echo "/usr/bin/ceilometer-api" >> /root/postlaunch.sh
 RUN chmod 755 /root/postlaunch.sh
