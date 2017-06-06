@@ -24,13 +24,13 @@ RUN git clone -b 6.0.0 http://github.com/openstack/ceilometer.git  /opt/stack/
 WORKDIR /opt/stack
 RUN pip install -r requirements.txt
 
-
 RUN python setup.py install
 RUN mkdir -p /etc/ceilometer
+
 #RUN tox -egenconfig
 RUN cp /opt/stack/etc/ceilometer/*.json /etc/ceilometer
 RUN cp /opt/stack/etc/ceilometer/*.yaml /etc/ceilometer
-RUN cp /opt/stack/etc/ceilometer/ceilometer.conf.sample /etc/ceilometer/ceilometer.conf
+#RUN cp /opt/stack/etc/ceilometer/ceilometer.conf.sample /etc/ceilometer/ceilometer.conf
 
 #RUN pip install python-openstackclient
 
