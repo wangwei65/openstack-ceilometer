@@ -36,7 +36,7 @@ RUN cp /opt/stack/etc/ceilometer/*.yaml /etc/ceilometer
 
 #Ceilometer Collector Configuration changes
 #RUN sed -ri 's/#metering_secret=change this or be hacked/metering_secret=redhat/' /etc/ceilometer/ceilometer.conf
-#COPY /etc/meters.yaml /etc/ceilometer/meters.yaml
+COPY /etc/meters.yaml /etc/ceilometer/meters.yaml
 COPY /etc/ceilometer.conf /etc/ceilometer/ceilometer.conf
 
 
