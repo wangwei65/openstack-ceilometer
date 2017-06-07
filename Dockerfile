@@ -47,8 +47,8 @@ RUN cp /opt/stack/etc/ceilometer/api_paste.ini /etc/ceilometer/api_paste.ini
 ##Ceilometer Post Launch Configuration
 RUN echo "#!/bin/bash" > /root/postlaunch.sh
 
-RUN echo "/usr/bin/ceilometer-collector > collector.log 2>&1 &" >> /root/postlaunch.sh
-RUN echo "/usr/bin/ceilometer-api > api.log" >> /root/postlaunch.sh
+RUN echo "/usr/local/bin/ceilometer-collector > collector.log 2>&1 &" >> /root/postlaunch.sh
+RUN echo "/usr/local/bin/ceilometer-api > api.log" >> /root/postlaunch.sh
 RUN chmod 755 /root/postlaunch.sh
 
 CMD ["/root/postlaunch.sh"]
