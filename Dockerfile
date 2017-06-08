@@ -39,4 +39,4 @@ RUN cp /opt/stack/etc/ceilometer/api_paste.ini /etc/ceilometer/api_paste.ini
 COPY postlauch.sh /root/postlaunch.sh
 RUN chmod 755 /root/postlaunch.sh
 
-CMD ["/root/postlaunch.sh"]
+CMD sh /root/postlaunch.sh
