@@ -36,7 +36,7 @@ COPY /etc/ceilometer.conf /etc/ceilometer/ceilometer.conf
 #Ceilometer API Configuration changes
 RUN cp /opt/stack/etc/ceilometer/api_paste.ini /etc/ceilometer/api_paste.ini
 
-COPY postlaunch.sh /root/postlaunch.sh
+COPY postlauch.sh /root/postlaunch.sh
 RUN chmod 755 /root/postlaunch.sh
 
 CMD ["/root/postlaunch.sh"]
