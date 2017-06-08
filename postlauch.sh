@@ -7,14 +7,16 @@ sed -i "s/KEYSTONE_HOST/$KEYSTONE_HOST/g" /etc/ceilometer/ceilometer.conf
 sed -i "s/PROJECT_DOMAIN_NAME/$PROJECT_DOMAIN_NAME/g" /etc/ceilometer/ceilometer.conf
 sed -i "s/USER_DOMAIN_NAME/$USER_DOMAIN_NAME/g" /etc/ceilometer/ceilometer.conf
 sed -i "s/PROJECT_NAME/$PROJECT_NAME/g" /etc/ceilometer/ceilometer.conf
-sed -i "s/KEYSTONE_USER/$KEYSTONE_USER/g" /etc/ceilometer/ceilometer.conf
-sed -i "s/KEYSTONE_PASSWORD/$KEYSTONE_PASSWORD/g" /etc/ceilometer/ceilometer.conf
+sed -i "s/CEILOMETER_USER/$CEILOMETER_USER/g" /etc/ceilometer/ceilometer.conf
+sed -i "s/CEILOMETER_PASSWORD/$CEILOMETER_PASSWORD/g" /etc/ceilometer/ceilometer.conf
 sed -i "s/AUTH_TYPE/$AUTH_TYPE/g" /etc/ceilometer/ceilometer.conf
 sed -i "s/RABBIT_USERID/$RABBIT_USERID/g" /etc/ceilometer/ceilometer.conf
 sed -i "s/RABBIT_PASSWORD/$RABBIT_PASSWORD/g" /etc/ceilometer/ceilometer.conf
 sed -i "s/RABBIT_HOST/$RABBIT_HOST/g" /etc/ceilometer/ceilometer.conf
 sed -i "s/REGION_NAME/$REGION_NAME/g" /etc/ceilometer/ceilometer.conf
 sed -i "s/INTERFACE/$INTERFACE/g" /etc/ceilometer/ceilometer.conf
+sed -i "s/AUTH_PORT1/$AUTH_PORT1/g" /etc/ceilometer/ceilometer.conf
+sed -i "s/AUTH_PORT2/$AUTH_PORT2/g" /etc/ceilometer/ceilometer.conf
 
 /usr/local/bin/ceilometer-collector > collector.log 2>&1 &
 /usr/local/bin/ceilometer-api > api.log
